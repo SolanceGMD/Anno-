@@ -44,7 +44,7 @@ public partial class MainWindow : Window
             _undo.Clear();
             DrawingCanvas.Width = Math.Max(900, image.PixelWidth);
             DrawingCanvas.Height = Math.Max(620, image.PixelHeight);
-            DocumentLabel.Text = Path.GetFileName(dialog.FileName);
+            DocumentLabel.Text = System.IO.Path.GetFileName(dialog.FileName);
         }
         catch (Exception ex)
         {
