@@ -8,5 +8,6 @@
     <AssemblyName>anno+</AssemblyName>
     <RootNamespace>AnnoPlus</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>..\\..\\assets\\anno-plus.ico</ApplicationIcon>
   </PropertyGroup>
 </Project>
