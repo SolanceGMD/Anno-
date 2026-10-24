@@ -68,7 +68,7 @@ public partial class MainWindow : Window
         else if (RectTool?.IsChecked == true) _tool = "Rectangle";
         else if (EllipseTool?.IsChecked == true) _tool = "Ellipse";
         else if (TextTool?.IsChecked == true) _tool = "Text";
-        DrawingCanvas.Cursor = _tool == "Select" ? Cursors.Arrow : _tool == "Text" ? Cursors.IBeam : Cursors.Cross;
+        if (DrawingCanvas != null) DrawingCanvas.Cursor = _tool == "Select" ? Cursors.Arrow : _tool == "Text" ? Cursors.IBeam : Cursors.Cross;
     }
 
     private void Color_Click(object sender, RoutedEventArgs e)
