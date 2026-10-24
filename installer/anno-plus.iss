@@ -4,7 +4,7 @@
 #define MyAppExeName "anno+.exe"
 
 [Setup]
-AppId={{A6E57D82-2D39-4CF6-BD4E-ANNOPLUS0001}
+AppId={{A6E57D82-2D39-4CF6-BD4E-123456789001}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
