@@ -21,6 +21,10 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      - name: Generate Windows app icon
+        shell: pwsh
+        run: ./scripts/generate-icon.ps1
+
       - name: Publish standalone app
         shell: pwsh
         run: |
