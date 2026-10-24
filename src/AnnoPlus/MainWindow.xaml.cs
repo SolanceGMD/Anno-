@@ -241,6 +241,7 @@ public partial class MainWindow : Window
     private void HandleFileDrop(DragEventArgs e, Point point)
     {
         if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
+        e.Handled = true;
         if (e.Data.GetData(DataFormats.FileDrop) is string[] files)
         {
             var offset = 0;
@@ -256,7 +257,7 @@ public partial class MainWindow : Window
         if (dialog.ShowDialog() != true) return;
         try
         {
-            var objects = DrawingCanvas.Children.Cast<UIElement>().Select(el => new ProjectObject { Xaml = XamlWriter.Save(el), Left = Canvas.GetLeft(el), Top = Canvas.GetTop(el) }).ToList();
+            var objects = DrawingCanvas.Children.Cast<UIElement>().Select(el => new ProjectObject { Xaml = XamlWriter.Save(el), Left = double.IsFinite(Canvas.GetLeft(el)) ? Canvas.GetLeft(el) : 0, Top = double.IsFinite(Canvas.GetTop(el)) ? Canvas.GetTop(el) : 0 }).ToList();
             File.WriteAllText(dialog.FileName, JsonSerializer.Serialize(new ProjectData { Width = DrawingCanvas.Width, Height = DrawingCanvas.Height, Objects = objects }, new JsonSerializerOptions { WriteIndented = true }));
             _projectPath = dialog.FileName; DocumentLabel.Text = System.IO.Path.GetFileName(dialog.FileName); StatusLabel.Text = "Editable project saved";
         }
